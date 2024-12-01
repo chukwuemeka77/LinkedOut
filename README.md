@@ -1,4 +1,4 @@
-# LinkedOut directory structure 
+I'm# LinkedOut directory structure 
 backend/
 ├── models/
 │   ├── Link.js
@@ -18,3 +18,25 @@ backend/
 │   └── payments.js     # NEW
 ├── server.js
 └── package.json
+Front end 
+frontend/
+├── public/        # Static assets
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── LinkBuilder.js
+│   │   ├── ThemeCustomizer.js
+│   │   ├── TemplateSelector.js
+│   │   ├── LandingPage.js
+│   │   └── AnalyticsDashboard.js
+│   ├── pages/
+│   │   ├── Home.js
+│   │   ├── Admin.js
+│   │   └── Landing.js
+│   ├── styles/    # Custom CSS for templates
+│   │   └── templates.css
+│   ├── App.js     # Main App component
+│   ├── index.js   # Entry point
+│   └── api/       # Axios API utility
+│       └── api.js
+└── package.json   # Dependencies
