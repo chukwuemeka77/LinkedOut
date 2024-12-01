@@ -27,3 +27,16 @@ router.delete('/:id', async (req, res) => {
   await Link.findByIdAndDelete(req.params.id);
   res.json({ message: 'Link deleted' });
 });
+// Limit links based on the user's plan
+router.post('/', async (req, res) => {
+  const user = await User.findById(req.body.userId).populate('plan');
+  const linkCount = await Link.countDocuments({ userId: req.body.userId });
+
+  if (user.plan && linkCount >= user.plan.maxLinks) {
+    return res.status(403).json({ message: 'Link limit exceeded for your plan' });
+  }
+
+  const link = new Link(req.body);
+  await link.save();
+  res.status(201).json(link);
+});
